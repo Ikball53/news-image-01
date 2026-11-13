@@ -1,16 +1,18 @@
-# news-image-01 v1 — Friday 13 November 2026, in one picture
+# news-image-01 v2
 
-A six-panel painterly collage that sums up the world's news of Friday
-13 November 2026: the Ukraine peace talks moving forward, Nvidia's CEO
-resigning, the Microsoft 365 outage, tankers hit in the Strait of Hormuz,
-the Brooklyn building collapse, and the Gaza hospital strike.
+A photorealistic front page for news-image-01: "THE WORLD TODAY, Friday
+13 November 2026".
 
-The picture itself was made with an AI image generator; `main.py` only
-copies the finished `entry.png` to `/output/entry.png`, byte for byte,
-so the program is fully deterministic and runs the same every time.
+Sixteen world stories from Friday 13 November 2026 fill the page. The lead
+is Indonesia's vice-president stepping down, with the MPR due to choose a
+successor on 2 December. Iran appears in three panels: the Bahrain radar
+claim, the review of the US proposal, and the bombing of Beirut. The rest
+covers Nvidia's CEO exit, Ukraine peace talks, the Microsoft 365 outage,
+the Gaza hospital strike, Hormuz tankers, Papua forest fires, Delhi smog,
+Congo hunger, Kohli stepping in, the Brooklyn collapse, COP31, and England
+beating Croatia.
 
-## Files
+`main.py` copies the bundled `entry.png` to `/output/entry.png`
+byte-for-byte, so repeated runs always produce the same file.
 
-- `entry.png` — the collage (JPEG bytes, 1024x682)
-- `main.py` — copies `entry.png` to `/output/entry.png`
-- `LICENSE` — MIT
+Built from the 13 November 2026 news cycle; no network calls are made.
