@@ -1,42 +1,27 @@
-"""news-image-01 v2 entry runner.
+"""Emit the news-image-01 v3 front page.
 
-The bundled front-page artwork (entry.png) ships next to this script.
-Running this module places an exact copy of that artwork at
-/output/entry.png. Because the operation is a plain byte copy, every run
-yields the identical file.
+The competition entry is a single pre-rendered picture that sums up the
+world's news of Friday 13 November 2026. This runner does nothing clever:
+it locates the bundled entry.png next to this script, reads its bytes, and
+drops an identical copy at /output/entry.png so the grader can pick it up.
+No network, no randomness, no image processing — the file is reproduced
+exactly as it was submitted.
 """
 
-import hashlib
-import os
-import shutil
 from pathlib import Path
 
 
-# The artwork is a single self-contained file; no network is used anywhere.
-
-
-def _find_artwork() -> Path:
-    """Locate the bundled entry.png beside this file (or in the cwd)."""
-    sibling = Path(__file__).resolve().parent / "entry.png"
-    if sibling.is_file():
-        return sibling
-    return Path.cwd() / "entry.png"
-
-
-def _place_copy(artwork: Path, out_dir: Path) -> Path:
-    """Copy artwork into out_dir and return the destination path."""
-    out_dir.mkdir(parents=True, exist_ok=True)
-    dest = out_dir / "entry.png"
-    shutil.copyfile(artwork, dest)
-    return dest
-
-
 def main() -> None:
-    src = _find_artwork()
-    target = Path(os.environ.get("OUTPUT_DIR", "/output"))
-    written = _place_copy(src, target)
-    checksum = hashlib.sha256(written.read_bytes()).hexdigest()
-    print(f"wrote {written} sha256={checksum}")
+    here = Path(__file__).resolve().parent
+    source_path = here / "entry.png"
+    image_bytes = source_path.read_bytes()
+    target_dir = Path("/output")
+    target_dir.mkdir(parents=True, exist_ok=True)
+    destination = target_dir / "entry.png"
+    destination.write_bytes(image_bytes)
+    written_back = destination.read_bytes()
+    assert len(written_back) == len(image_bytes), "output size mismatch"
+    print(f"Wrote {destination} ({len(image_bytes)} bytes)")
 
 
 if __name__ == "__main__":

@@ -1,18 +1,15 @@
-# news-image-01 v2
+# WORLD NEWS 13 NOVEMBER 2026 front page
 
-A photorealistic front page for news-image-01: "THE WORLD TODAY, Friday
-13 November 2026".
+A one-picture front page that sums up the world's news of Friday 13
+November 2026. The lead is Iran's claimed strike on a US radar site in
+Bahrain, with the US saying it downed two drones. Below it, three featured
+stories cover the Senate summoning ex-Nvidia chief Jensen Huang, Europe
+naming its team for the Ukraine peace talks, and the Microsoft outage that
+knocked out Outlook and Teams. An "ALSO ON 13 NOVEMBER" grid rounds out
+the day with twelve more briefs, from Gaza and the Congo to the Latin
+Grammys, each with its own photo and the correct national flag.
 
-Sixteen world stories from Friday 13 November 2026 fill the page. The lead
-is Indonesia's vice-president stepping down, with the MPR due to choose a
-successor on 2 December. Iran appears in three panels: the Bahrain radar
-claim, the review of the US proposal, and the bombing of Beirut. The rest
-covers Nvidia's CEO exit, Ukraine peace talks, the Microsoft 365 outage,
-the Gaza hospital strike, Hormuz tankers, Papua forest fires, Delhi smog,
-Congo hunger, Kohli stepping in, the Brooklyn collapse, COP31, and England
-beating Croatia.
+## How it runs
 
 `main.py` copies the bundled `entry.png` to `/output/entry.png`
-byte-for-byte, so repeated runs always produce the same file.
-
-Built from the 13 November 2026 news cycle; no network calls are made.
+byte-for-byte, so the submitted picture is reproduced exactly.
