@@ -1,4 +1,4 @@
-"""Emit the news-image-01 v3 front page.
+"""Emit the news-image front page.
 
 The competition entry is a single pre-rendered picture that sums up the
 world's news of Friday 13 November 2026. This runner does nothing clever:
